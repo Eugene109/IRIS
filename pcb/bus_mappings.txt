@@ -1,0 +1,16 @@
+I2C1 - Mag
+I2C2 - Camera
+I2C3
+I2C4
+
+// SPI1 // occupied by DCMI HSYNC on PA4 & SPI3 on alt
+SPI2 - Baro
+SPI3 - IMU
+SPI4 - 2.4GHz Radio
+
+USART1 - GPS
+USART2 - 
+USART3
+USART4
+
+USART8 - ELRS
