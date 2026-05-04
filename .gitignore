@@ -1,3 +1,6 @@
 IRIS_KiCAD/libs/lcsc_import_lib/*
 IRIS_KiCAD/*-backups
 IRIS_KiCAD/fp-info-cache
+IRIS_KiCAD/.history
+
+*.blend1
