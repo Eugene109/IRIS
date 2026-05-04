@@ -1,5 +1,5 @@
 G04 Layer: BottomPasteMaskLayer*
-G04 EasyEDA Pro v2.2.47.7, 2026-05-03 20:12:45*
+G04 EasyEDA Pro v2.2.47.7, 2026-05-04 14:17:44*
 G04 Gerber Generator version 0.3*
 G04 Scale: 100 percent, Rotated: No, Reflected: No*
 G04 Dimensions in millimeters*
@@ -19,7 +19,7 @@ G04 Copper Areas: 0*
 %ADD16R,1.52999X1.29601*%
 %ADD17R,1.0X2.69999*%
 %ADD18R,0.3X1.25001*%
-%ADD19R,2.0066X2.49999*%
+%ADD19R,2.0085X2.49999*%
 %ADD20R,2.0X2.49999*%
 %ADD21R,0.6X1.08001*%
 %ADD22O,0.7X1.773*%
