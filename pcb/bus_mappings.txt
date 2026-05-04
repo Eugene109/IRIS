@@ -1,4 +1,4 @@
-I2C1 - Mag
+I2C1 - Magnetometer (SAD 0011100b)
 I2C2 - Camera
 I2C3
 I2C4
