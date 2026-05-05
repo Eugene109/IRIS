@@ -1,4 +1,4 @@
 (fp_lib_table
 	(version 7)
-	(lib (name "LCSC_imported") (type "KiCad") (uri "${KIPRJMOD}/libs/lcsc_import_lib/easyeda2kicad.pretty") (options "") (descr ""))
+	(lib (name "ProPrj_IRI-easyedapro") (type "KiCad") (uri "${KIPRJMOD}/libs/lcsc_import_lib/easyeda2kicad.pretty") (options "") (descr ""))
 )
