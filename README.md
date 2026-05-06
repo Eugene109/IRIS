@@ -20,7 +20,7 @@ IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight 
 
 ## Table of Contents
 - [Design Features](#design-features)
-  - [PCB Design](#pcb-design)
+  - [Flight Controller Design](#flight-controller-design)
   - [ESC Design](#esc-design)
   - [Frame Design](#frame-design)
 - [Getting Started](#getting-started)
@@ -31,7 +31,7 @@ IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight 
 
 ## Design Features
 
-### PCB Design
+### Flight Controller Design
 <p align="center">
   <img alt="Annotated render of the front of the PCB" src="./docs/images/annotated_front.png" width="45%">
 &nbsp; &nbsp; &nbsp; &nbsp;
@@ -50,7 +50,12 @@ The main flight controller MCU is programmable over USB. The 4 ESC MCUs require 
 
 [Schematic](./pcb/schematics/ESC_Schematics/Motor1_ESC_Schematic.svg)
 
+The ESC design features an AT32F421 microcontroller, a very powerful MCU that enables accurate back-emf drive even for high kV motors. The AT32F421 MCU is fully supported by the open-source [AM32](https://github.com/am32-firmware/AM32) ESC firmware and can be controlled using DShot or PWM.
+
 ### Frame Design
+The frame design merges swooping curves and sharp geometric angles in a retrofuturistic visual style. Inspired by the Theme Building at LAX, the frame arms are each constructed with 3 catenary curves, with the bottom arches merging together to form the cradle for the battery.
+
+The drone frame is constructed in two pieces and held together by 8 M2 screws. The bottom half contains a battery mount and 4 9x9mm motor mounts, while the top half clamps the PCB down. The top cover shields the bulk of the PCB while leaving the high-current ESC MOSFET sections exposed for cooling, and is bolted down using 8 10mm long M2 screws and heat set inserts on the bottom half.
 
 ## Getting Started
 
@@ -84,6 +89,8 @@ Total cost from LCSC: **$79.91**
 ### Assembly
 
 The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB with the simple 4-layer PCBA economical service. Two-sided automated assembly is quite expensive however, so first prototypes will be assembled manually using solder stencils. PCB components can be ordered from LCSC using the [LCSC BOM](./pcb/fabrication/BOM_Board1_PCB1_2026-05-03.xlsx).
+> NOTE: The large copper pours are connected directly to a lot of the pads, manual soldering will require the use of a hot air rework station and powerful soldering iron
+
 
 ## Drone Assembly
 
@@ -97,15 +104,22 @@ The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB w
 | Motors | 4x 8000 kV 1103 Brushless DC | HappyModel | 23.99 |
 | Propellers | 2.5" |
 | Camera | OV2640 with SCCB cable | Arducam | 6.99 |
+| Heat-set inserts | M2x2.5mm, 3.5mm OD Knurled Brass Threaded Heat Set Inserts | Rusty Bolt Shop | $1.70 |
+| M2x10mm screws | | The Rusty Bolt Shop |
+| M2x8mm screws | | The Rusty Bolt Shop |
+| Vibration dampening foam | 3M Double Coated Urethane Foam Tape 4056 | 
+
 
 ### Assembly
-1. Print the frame
-2. Insert assembled PCB and attach using foam pads
-3. Fasten top and bottom of the frame to secure the PCB
-4. Insert the battery into the cradle underneath the PCB, fasten with velcro strips across horizontal beams
-5. Attach brushless motors with M2 screws
-6. Attach propellers to brushless motors
-7. Fly!
+1. Print the frame in two sections
+2. Attach heat-set inserts with a soldering iron on the base frame
+3. Cut 4056 foam to shape and attach to the PCB contact areas on both sides of the frame 
+4. Insert the assembled PCB and bolt down all 8 M2x10mm screws
+5. Fasten top and bottom of the frame to secure the PCB
+6. Insert the battery into the cradle underneath the PCB, fasten with velcro strips across horizontal beams
+7. Attach brushless motors with M2x8mm screws
+8. Attach propellers to brushless motors
+9. Fly!
 
 ## Firmware
 This flight controller is Betaflight-compatible, although I still need to write the configuration files for the firmware. The firmware will need to be written and tested once the PCB is assembled.
