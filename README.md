@@ -102,3 +102,5 @@ This flight controller is Betaflight-compatible, although I still need to write 
 ## License
 
 Everything is [GNU GPL-3.0](LICENSE)
+
+rostock_laage_airport_4k.exr is CC0 from PolyHaven, credit to Greg Zaal
