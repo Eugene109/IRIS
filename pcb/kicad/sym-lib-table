@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "ProPrj_IRI-easyedapro") (type "KiCad") (uri "${KIPRJMOD}/libs/lcsc_import_lib/easyeda2kicad.kicad_sym") (options "") (descr ""))
+)
