@@ -52,6 +52,10 @@ The main flight controller MCU is programmable over USB. The 4 ESC MCUs require 
 
 The ESC design features an AT32F421 microcontroller, a very powerful MCU that enables accurate back-emf drive even for high kV motors. The AT32F421 MCU is fully supported by the open-source [AM32](https://github.com/am32-firmware/AM32) ESC firmware and can be controlled using DShot or PWM.
 
+Loosely based off of this open-source design I found:
+https://electronoobs.com/eng_arduino_tut91.php, the wiring diagram was very helpful to guide the general layout of my ESC. The control logic is loosely based off of the arduino code, though it had to be completely rewritten to interface with STM32 hardware.
+
+
 ### Frame Design
 The frame design merges swooping curves and sharp geometric angles in a retrofuturistic visual style. Inspired by the Theme Building at LAX, the frame arms are each constructed with 3 catenary curves, with the bottom arches merging together to form the cradle for the battery.
 
@@ -122,7 +126,9 @@ The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB w
 9. Fly!
 
 ## Firmware
-This flight controller is Betaflight-compatible, although I still need to write the configuration files for the firmware. The firmware will need to be written and tested once the PCB is assembled.
+This flight controller is Betaflight-compatible, and the configuration header for a Betaflight target can be found in `firmware/betaflight/`. The compiled binaries can be found in the same directory, and the `.hex` file is recommended. The source code can be found at the [Betaflight firmware repository](https://github.com/betaflight/betaflight), and the `config.h` file can be copied into the config directory to build it yourself.
+
+The ESCs run custom firmware, named Zephyr. The binaries can be found in `firmware/zephyr/binaries/` and the source code is available at its [repository](https://github.com/Eugene109/zephyr).
 
 ## Roadmap
 
