@@ -1,4 +1,4 @@
-# IRIS
+# ![IRIS](./docs/logo/logo.png)
 
 > A low-cost quadcopter platform designed for autonomous swarm operations.
 
