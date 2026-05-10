@@ -26,6 +26,7 @@ IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight 
   - [Frame Design](#frame-design)
 - [Getting Started](#getting-started)
 - [PCB Assembly](#pcb-assembly)
+- [Bill of Materials](#bill-of-materials)
 - [Drone Assembly](#drone-assembly)
 - [Firmware](#firmware)
 - [Roadmap](#roadmap)
@@ -54,8 +55,7 @@ The main flight controller MCU is programmable over USB. The 4 ESC MCUs require 
 The ESC design features an STM32F303K8T6 microcontroller, a very powerful MCU that enables accurate back-emf drive even for high kV motors. 
 
 Loosely based off of this open-source design I found,
-https://electronoobs.com/eng_arduino_tut91.php, the wiring diagram was very helpful to guide the general layout of my ESC. The control logic is loosely based off of the arduino code, though it had to be completely rewritten to interface with STM32 hardware.
-
+https://electronoobs.com/eng_arduino_tut91.php, the wiring diagram was very helpful to guide the general layout of my ESC. The control logic is loosely based off of the arduino code, though it had to be completely rewritten to interface with STM32 hardware (really all BLDC motor control logic is the same, but nice understandable code was helpful).
 
 ### Frame Design
 The frame design merges swooping curves and sharp geometric angles in a retrofuturistic visual style. Inspired by the Theme Building at LAX, the frame arms are each constructed with 3 catenary curves, with the bottom arches merging together to form the cradle for the battery.
@@ -89,28 +89,26 @@ All of the renders on the documentation were created using Blender 5.1, and rend
 
 ## PCB Assembly
 
-### Bill of Materials
+### PCB ComponentBill of Materials
 [Full BOM](./pcb/fabrication/BOM.md)
 
-Total cost from LCSC: **$79.91**
-[LCSC BOM](./pcb/fabrication/BOM_Board1_PCB1_2026-05-03.xlsx)
+Total cost from LCSC: **$103.21**
+[LCSC Quote](./pcb/fabrication/LCSC_BOM_export.xls)
 
 ### Assembly
 
-The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB with the simple 4-layer PCBA economical service. Two-sided automated assembly is quite expensive however, so first prototypes will be assembled manually using solder stencils. PCB components can be ordered from LCSC using the [LCSC BOM](./pcb/fabrication/BOM_Board1_PCB1_2026-05-03.xlsx).
+The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB with the simple 4-layer PCBA economical service. Two-sided automated assembly is quite expensive however, so first prototypes will be assembled manually using solder stencils. PCB components can be ordered from LCSC using the [LCSC BOM](./pcb/fabrication/BOM_BOard1_PCB1.xlsx).
 > NOTE: The large copper pours are connected directly to a lot of the pads, manual soldering will require the use of a hot air rework station and powerful soldering iron
 
-## Drone Assembly
-
-### Components
+## Bill of Materials
 
 | Part | Description | Link | Price |
 | --- | ----------- | ------------ | ----- |
 | FC+ESC | 4-layer PCB A Economic, HASL(leaded) finish, 2 stencils w/ framework | [JLCPCB](./pcb/fabrication/jlcpcb_quote.png) | 29.23 |
 | FC+ESC | IRIS PCB Components | [LCSC](./pcb/fabrication/LCSC_BOM_export.xls) | 103.21 |
 | Frame | IRIS Frame | [3D Print](./frame/3mf) | - |
-| Battery | 1000 mAh 2S LiPo | [Admiral]() | 9.99 |
-| Motors | 4x 8000 kV 1103 Brushless DC | [AliExpress]() | 23.99 |
+| Battery | 1000 mAh 2S LiPo with XT60 connector| [Admiral](https://motionrc.com/products/admiral-1000mah-2s-7-4v-30c-lipo-battery-with-xt60-connector-epr10002x6) | 9.99 |
+| Motors | 4x 8000 kV 1103 Brushless DC | [AliExpress](https://www.aliexpress.us/item/3256808118156099.html) | 23.99 |
 | Propellers | Gemfan 2512 2.5Inch 3-Blade 1.5mm Hole Propeller - 4CW+4CCW | [Pyrodrone](https://pyrodrone.com/products/gemfan-2512-2-5inch-3-blade-1-5mm-2mm-hole-propeller-4cw-4ccw) | 4.99 |
 | Camera | OV2640 with SCCB cable | [Arducam](https://www.arducam.com/ov2640-2-0-mp-mega-pixels-1-4-cmos-image-sensor-sccb-interface-camera-module.html) | 6.99 |
 | Heat-set inserts | M2x2.5mm, 3.5mm OD Knurled Brass Threaded Heat Set Inserts | [Rusty Bolt Shop](https://ebay.us/m/7A3cL3) | 1.70 |
@@ -118,26 +116,32 @@ The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB w
 | Motor mount screws | M2x8mm screws | [The Rusty Bolt Shop](https://ebay.us/m/UnEsMj) | 2.56 |
 | Vibration dampening foam | 3M Double Coated Urethane Foam Tape 4056 | [Newegg](https://www.newegg.com/p/2VW-0006-00155?item=9SIA5D52U89288) | 14.99 |
 
+Total: $199.67
+(minus shipping)
 
-### Assembly
+## Drone Assembly
 1. Print the frame in two sections
 2. Attach heat-set inserts with a soldering iron on the base frame
 3. Cut 4056 foam to shape and attach to the PCB contact areas on both sides of the frame 
-4. Insert the assembled PCB and bolt down all 8 M2x10mm screws
-5. Fasten top and bottom of the frame to secure the PCB
-6. Insert the battery into the cradle underneath the PCB, fasten with velcro strips across horizontal beams
-7. Attach brushless motors with M2x8mm screws
-8. Attach propellers to brushless motors
+4. Insert the assembled PCB between the two frame sections and bolt down all 8 M2x10mm screws
+5. Insert the battery into the cradle underneath the PCB, fasten with velcro strips across horizontal beams
+6. Attach brushless motors with M2x8mm screws
+7. Press-fit 2CCW and 2CW propellers onto the four brushless motors' 1.5mm shafts
+8. Flash the firmware
 9. Fly!
 
 ## Firmware
 ### Betaflight
 This flight controller is capable of running Betaflight, and the configuration header for a Betaflight target can be found in `firmware/betaflight/`. The compiled binaries can be found in the same directory, and the `.hex` file is recommended. The source code can be found at the [Betaflight firmware repository](https://github.com/betaflight/betaflight), and the `config.h` file can be copied into the config directory to build it yourself.
 
+The flight control software can be flashed using the USB-C port on the aft of the drone. Simply plug it in and use STMCubeProgrammer to flash it!
+
 ### Zephyrus
 The ESCs run custom firmware, named Zephyrus. The binaries and source code is available at its [repository](https://github.com/Eugene109/zephyrus).
 
-Zephyrus is currently capable of sensorless back-EMF drive, and runs on the STM32F303K8T6 MCU platform. The sensorless drive is powered by ADC zero-crossing detection synchronized with the PWM output to the MOSFET drivers.
+Zephyrus is currently capable of sensorless back-EMF drive, and runs on the STM32F303K8T6 MCU platform. The sensorless drive is powered by ADC zero-crossing detection synchronized with the PWM output to the MOSFET drivers. The choice to use software detection of zero-crossing over hardware comparators was for the increased flexibility as the firmware matures, enabling more interesting control systems than just zero-crossing alone.
+
+The ESCs are a bit harder to flash, though they should require only a single flashing when the firmware is tuned. Connect a serial programmer (FTDI, hijack an Arduino, etc) to the RX, TX, and GND pins and flash the MCU using the ROM bootloader. To switch the MCU to the built-in bootloader to program, simply flip the boot selector switch and press the reset button.
 
 ## Roadmap
 
@@ -161,3 +165,5 @@ zephyrus firmware is licensed under MIT, check its [repo](https://github.com/Eug
 2.5" propeller 3D model used in Fusion Assembly is from [GrabCAD](https://www.thingiverse.com/thing:6901068) by [Buddhas_Priest](https://www.thingiverse.com/Buddhas_Priest)
 
 rostock_laage_airport_4k.exr is CC0 from PolyHaven, credit to Greg Zaal
+
+Inspiration was taken from [Electronoobs's ESC design], informing the framework for a standard ESC architecture.
