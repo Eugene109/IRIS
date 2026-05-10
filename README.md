@@ -1,4 +1,4 @@
-# ![IRIS](./docs/logo/logo.png)
+<img alt="IRIS" src="./docs/logo/logo.svg" height="100px">
 
 > A low-cost quadcopter platform designed for autonomous swarm operations.
 
@@ -50,14 +50,18 @@ The main flight controller MCU is programmable over USB. The 4 ESC MCUs require 
 
 [Schematic](./pcb/schematics/ESC_Schematics/Motor1_ESC_Schematic.svg)
 
-The ESC design features an AT32F421 microcontroller, a very powerful MCU that enables accurate back-emf drive even for high kV motors. The AT32F421 MCU is fully supported by the open-source [AM32](https://github.com/am32-firmware/AM32) ESC firmware and can be controlled using DShot or PWM.
+The ESC design features an STM32F303K8T6 microcontroller, a very powerful MCU that enables accurate back-emf drive even for high kV motors. 
 
-Loosely based off of this open-source design I found:
+Loosely based off of this open-source design I found,
 https://electronoobs.com/eng_arduino_tut91.php, the wiring diagram was very helpful to guide the general layout of my ESC. The control logic is loosely based off of the arduino code, though it had to be completely rewritten to interface with STM32 hardware.
 
 
 ### Frame Design
 The frame design merges swooping curves and sharp geometric angles in a retrofuturistic visual style. Inspired by the Theme Building at LAX, the frame arms are each constructed with 3 catenary curves, with the bottom arches merging together to form the cradle for the battery.
+
+![CAD render of the integrated frame + PCB](docs/images/CAD_render.png)
+
+At the top of the frame, a little cradle with a minimalist IRIS logo debossed reserves space for a small collection of Skittles, easily dumped out by flipping the drone.
 
 The drone frame is constructed in two pieces and held together by 8 M2 screws. The bottom half contains a battery mount and 4 9x9mm motor mounts, while the top half clamps the PCB down. The top cover shields the bulk of the PCB while leaving the high-current ESC MOSFET sections exposed for cooling, and is bolted down using 8 10mm long M2 screws and heat set inserts on the bottom half.
 
@@ -68,12 +72,12 @@ The drone frame is constructed in two pieces and held together by 8 M2 screws. T
 - EasyEDA Pro (recommended)
 - KiCAD 10.0 (broken DRC rules)
 - Fusion 360
-- Blender 5.0+
+- Blender 5.0+ ([pcb2blender](https://github.com/30350n/pcb2blender) extension required for textures)
 
 ### For KiCAD Users:
 This project was made in the free software EasyEDA Pro, and the design is native to that software. The PCB design has been converted to a KiCAD project for easier access to the design.
 > NOTE: The KiCAD imported project relies on 3D models and footprints from LCSC, which should be imported using [easyeda2kicad.py](https://github.com/uPesy/easyeda2kicad.py) as follows:
-> `easyeda2kicad --full --lcsc_id C19702 C29266 C53084459 C602037 C23630 C100042 C19666 C95841 C86295 C7171 C1644 C106245 C47023104 C98732 C2856805 C52016392 C76891 C7427089 C6807998 C784395 C19268133 C98220 C2907028 C2906920 C163475 C60491 C106235 C105871 C2907044 C628050 C1850418 C83291 C478483 C7421519 C3029575 C2071056 C481371 C90770 C49446790 C2892669 C1985532 C2965508 C114409 C7431054 C709357 --output `**`<full path to pcb/kicad folder>`**`\libs\lcsc_import_lib --project-relative --overwrite `
+> `easyeda2kicad --full --lcsc_id C19702 C29266 C53084459 C602037 C23630 C100042 C19666 C95841 C86295 C7171 C1644 C106245 C47023104 C98732 C2856805 C52016392 C76891 C7427089 C6807998 C784395 C19268133 C98220 C2907028 C2906920 C163475 C60491 C106235 C105871 C2907044 C2909315 C53447012 C628051 C1850418 C83291 C478483 C7421519 C118318 C2071056 C2054944 C481371 C90770 C49446790 C2892669 C1985532 C2965508 C114409 C7431054 C19273151 C709357 --output `**`<full path to pcb/kicad folder>`**`\libs\lcsc_import_lib --project-relative --overwrite `
 
 ### Repository Structure
 All of the files for the flight controller + ESC board are contained in `pcb/`, with fabrication files in `pcb/fabrication/`. All fabrication files are to [JLCPCB](https://jlcpcb.com/) specifications. All part numbers are from LCSC.
@@ -126,14 +130,18 @@ The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB w
 9. Fly!
 
 ## Firmware
-This flight controller is Betaflight-compatible, and the configuration header for a Betaflight target can be found in `firmware/betaflight/`. The compiled binaries can be found in the same directory, and the `.hex` file is recommended. The source code can be found at the [Betaflight firmware repository](https://github.com/betaflight/betaflight), and the `config.h` file can be copied into the config directory to build it yourself.
+### Betaflight
+This flight controller is capable of running Betaflight, and the configuration header for a Betaflight target can be found in `firmware/betaflight/`. The compiled binaries can be found in the same directory, and the `.hex` file is recommended. The source code can be found at the [Betaflight firmware repository](https://github.com/betaflight/betaflight), and the `config.h` file can be copied into the config directory to build it yourself.
 
-The ESCs run custom firmware, named Zephyr. The binaries can be found in `firmware/zephyr/binaries/` and the source code is available at its [repository](https://github.com/Eugene109/zephyr).
+### Zephyrus
+The ESCs run custom firmware, named Zephyrus. The binaries and source code is available at its [repository](https://github.com/Eugene109/zephyrus).
+
+Zephyrus is currently capable of sensorless back-EMF drive, and runs on the STM32F303K8T6 MCU platform. The sensorless drive is powered by ADC zero-crossing detection synchronized with the PWM output to the MOSFET drivers.
 
 ## Roadmap
 
 - [X] PCB designed
-- [ ] Case designed
+- [X] Case designed
 - [ ] PCB assembled
 - [ ] Prototype assembled
 - [ ] Prototype tested
@@ -143,5 +151,7 @@ The ESCs run custom firmware, named Zephyr. The binaries can be found in `firmwa
 ## License
 
 Everything is [GNU GPL-3.0](LICENSE)
+
+zephyrus firmware is licensed under MIT, check its [repo](https://github.com/Eugene109/zephyrus) for more information.
 
 rostock_laage_airport_4k.exr is CC0 from PolyHaven, credit to Greg Zaal
