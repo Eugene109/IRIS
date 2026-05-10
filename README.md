@@ -1,13 +1,14 @@
-<img alt="IRIS" src="./docs/logo/logo.svg" height="100px">
+<img alt="IRIS" src="./docs/logo/logo.png" height="100px">
 
 > A low-cost quadcopter platform designed for autonomous swarm operations.
 
 [![License](https://img.shields.io/badge/License-GNU-blue.svg)](LICENSE)
 
-![Photorealistic render of the front side of the PCB](./docs/images/pr_render3.png)
+![Photorealistic render from the back-left side of the drone](./docs/images/pr_render5.png)
 
 ## Overview
 IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight controller and 4 ESCs. Designed with the idea of delivering Skittles autonomously, IRIS is built from the ground-up for autonomous operation in swarms. With a rich sensor set and high degree of customizability, IRIS represents an accessible, low-cost entry into the world of autonomous and swarm drone design.
+![Photorealistic render of the front side of the PCB](./docs/images/pr_render4.png)
 
 ## Features
  - STM32H743 MCU
@@ -99,23 +100,23 @@ Total cost from LCSC: **$79.91**
 The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB with the simple 4-layer PCBA economical service. Two-sided automated assembly is quite expensive however, so first prototypes will be assembled manually using solder stencils. PCB components can be ordered from LCSC using the [LCSC BOM](./pcb/fabrication/BOM_Board1_PCB1_2026-05-03.xlsx).
 > NOTE: The large copper pours are connected directly to a lot of the pads, manual soldering will require the use of a hot air rework station and powerful soldering iron
 
-
 ## Drone Assembly
 
 ### Components
 
-| Part | Description | Manufacturer | Price |
+| Part | Description | Link | Price |
 | --- | ----------- | ------------ | ----- |
-| FC+ESC | IRIS PCB |  | ~150.00 |
-| Frame | IRIS Frame |  | ~2.00 |
-| Battery | 1000 mAh 2S LiPo | Admiral | 9.99 |
-| Motors | 4x 8000 kV 1103 Brushless DC | HappyModel | 23.99 |
-| Propellers | 2.5" |
-| Camera | OV2640 with SCCB cable | Arducam | 6.99 |
-| Heat-set inserts | M2x2.5mm, 3.5mm OD Knurled Brass Threaded Heat Set Inserts | Rusty Bolt Shop | $1.70 |
-| M2x10mm screws | | The Rusty Bolt Shop |
-| M2x8mm screws | | The Rusty Bolt Shop |
-| Vibration dampening foam | 3M Double Coated Urethane Foam Tape 4056 | 
+| FC+ESC | 4-layer PCB A Economic, HASL(leaded) finish, 2 stencils w/ framework | [JLCPCB](./pcb/fabrication/jlcpcb_quote.png) | 29.23 |
+| FC+ESC | IRIS PCB Components | [LCSC](./pcb/fabrication/LCSC_BOM_export.xls) | 103.21 |
+| Frame | IRIS Frame | [3D Print](./frame/3mf) | - |
+| Battery | 1000 mAh 2S LiPo | [Admiral]() | 9.99 |
+| Motors | 4x 8000 kV 1103 Brushless DC | [AliExpress]() | 23.99 |
+| Propellers | Gemfan 2512 2.5Inch 3-Blade 1.5mm Hole Propeller - 4CW+4CCW | [Pyrodrone](https://pyrodrone.com/products/gemfan-2512-2-5inch-3-blade-1-5mm-2mm-hole-propeller-4cw-4ccw) | 4.99 |
+| Camera | OV2640 with SCCB cable | [Arducam](https://www.arducam.com/ov2640-2-0-mp-mega-pixels-1-4-cmos-image-sensor-sccb-interface-camera-module.html) | 6.99 |
+| Heat-set inserts | M2x2.5mm, 3.5mm OD Knurled Brass Threaded Heat Set Inserts | [Rusty Bolt Shop](https://ebay.us/m/7A3cL3) | 1.70 |
+| Frame screws | M2x10mm screws | [The Rusty Bolt Shop](https://ebay.us/m/wMPMiQ) | 2.02 |
+| Motor mount screws | M2x8mm screws | [The Rusty Bolt Shop](https://ebay.us/m/UnEsMj) | 2.56 |
+| Vibration dampening foam | 3M Double Coated Urethane Foam Tape 4056 | [Newegg](https://www.newegg.com/p/2VW-0006-00155?item=9SIA5D52U89288) | 14.99 |
 
 
 ### Assembly
@@ -153,5 +154,10 @@ Zephyrus is currently capable of sensorless back-EMF drive, and runs on the STM3
 Everything is [GNU GPL-3.0](LICENSE)
 
 zephyrus firmware is licensed under MIT, check its [repo](https://github.com/Eugene109/zephyrus) for more information.
+
+### Attribution
+1103 BLDC motor 3D model used in Fusion Assembly is from [GrabCAD](https://grabcad.com/library/geprc-gr1103-1) by [Dang Ngoc Duy](https://grabcad.com/dang.ngoc.duy-1)
+
+2.5" propeller 3D model used in Fusion Assembly is from [GrabCAD](https://www.thingiverse.com/thing:6901068) by [Buddhas_Priest](https://www.thingiverse.com/Buddhas_Priest)
 
 rostock_laage_airport_4k.exr is CC0 from PolyHaven, credit to Greg Zaal
