@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/License-GNU-blue.svg)](LICENSE)
 
-![Photorealistic render from the back-left side of the drone](./docs/images/pr_render5.png)
+![Photorealistic render from the back-right-top side of the drone](./docs/images/pr_render6.png)
 
 ## Overview
 IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight controller and 4 ESCs. Designed with the idea of delivering Skittles autonomously, IRIS is built from the ground-up for autonomous operation in swarms. With a rich sensor set and high degree of customizability, IRIS represents an accessible, low-cost entry into the world of autonomous and swarm drone design.
@@ -59,10 +59,11 @@ https://electronoobs.com/eng_arduino_tut91.php, the wiring diagram was very help
 
 ### Frame Design
 The frame design merges swooping curves and sharp geometric angles in a retrofuturistic visual style. Inspired by the Theme Building at LAX, the frame arms are each constructed with 3 catenary curves, with the bottom arches merging together to form the cradle for the battery.
-
-![CAD render of the integrated frame + PCB](docs/images/CAD_render.png)
+![Photorealistic render from the back-left side of the drone](./docs/images/pr_render5.png)
 
 At the top of the frame, a little cradle with a minimalist IRIS logo debossed reserves space for a small collection of Skittles, easily dumped out by flipping the drone.
+
+![CAD render of the integrated frame + PCB](docs/images/CAD_render.png)
 
 The drone frame is constructed in two pieces and held together by 8 M2 screws. The bottom half contains a battery mount and 4 9x9mm motor mounts, while the top half clamps the PCB down. The top cover shields the bulk of the PCB while leaving the high-current ESC MOSFET sections exposed for cooling, and is bolted down using 8 10mm long M2 screws and heat set inserts on the bottom half.
 
@@ -76,14 +77,14 @@ The drone frame is constructed in two pieces and held together by 8 M2 screws. T
 - Blender 5.0+ ([pcb2blender](https://github.com/30350n/pcb2blender) extension required for textures)
 
 ### For KiCAD Users:
-This project was made in the free software EasyEDA Pro, and the design is native to that software. The PCB design has been converted to a KiCAD project for easier access to the design.
+This project was made in the free software EasyEDA Pro, and the design is native to that software. The PCB design has been converted to a KiCAD project for easier access to the design, but there may be some errors that have occurred during the import process, in particular trace clearances and zone fill rules.
 > NOTE: The KiCAD imported project relies on 3D models and footprints from LCSC, which should be imported using [easyeda2kicad.py](https://github.com/uPesy/easyeda2kicad.py) as follows:
 > `easyeda2kicad --full --lcsc_id C19702 C29266 C53084459 C602037 C23630 C100042 C19666 C95841 C86295 C7171 C1644 C106245 C47023104 C98732 C2856805 C52016392 C76891 C7427089 C6807998 C784395 C19268133 C98220 C2907028 C2906920 C163475 C60491 C106235 C105871 C2907044 C2909315 C53447012 C628051 C1850418 C83291 C478483 C7421519 C118318 C2071056 C2054944 C481371 C90770 C49446790 C2892669 C1985532 C2965508 C114409 C7431054 C19273151 C709357 --output `**`<full path to pcb/kicad folder>`**`\libs\lcsc_import_lib --project-relative --overwrite `
 
 ### Repository Structure
-All of the files for the flight controller + ESC board are contained in `pcb/`, with fabrication files in `pcb/fabrication/`. All fabrication files are to [JLCPCB](https://jlcpcb.com/) specifications. All part numbers are from LCSC.
+All of the files for the flight controller + ESC board are contained in `pcb/`, with fabrication files in `pcb/fabrication/`. All fabrication files are to [JLCPCB](https://jlcpcb.com/) specifications. All part numbers are from [LCSC](https://www.lcsc.com/).
 
-The frame CAD files can be found in the `frame/` directory, with (metric) STL and 3MF exports ready for 3D printing.
+The frame CAD files can be found in the `frame/` directory, with (metric) STL and 3MF exports ready for 3D printing. The cover and bottom were designed in the same Fusion360 Part, and the IRIS_Assembly.f3z is the total assembly including parts I did not design.
 
 All of the renders on the documentation were created using Blender 5.1, and render files can be found in `docs/render/`.
 
@@ -124,10 +125,10 @@ Total: $199.67
 2. Attach heat-set inserts with a soldering iron on the base frame
 3. Cut 4056 foam to shape and attach to the PCB contact areas on both sides of the frame 
 4. Insert the assembled PCB between the two frame sections and bolt down all 8 M2x10mm screws
-5. Insert the battery into the cradle underneath the PCB, fasten with velcro strips across horizontal beams
+5. Insert the battery into the cradle underneath the PCB, fasten with zip ties across horizontal beams
 6. Attach brushless motors with M2x8mm screws
 7. Press-fit 2CCW and 2CW propellers onto the four brushless motors' 1.5mm shafts
-8. Flash the firmware
+8. Flash the firmware using a USB-C cable and a serial programmer
 9. Fly!
 
 ## Firmware
