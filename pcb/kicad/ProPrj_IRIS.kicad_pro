@@ -629,7 +629,7 @@
       {
         "filename": "ProPrj_IRIS.kicad_sch",
         "name": "Schematic1",
-        "uuid": "2e71071c-01ca-458e-91ea-f85268089b47"
+        "uuid": "9fc2e207-f486-4039-9a0e-ec89c7abc41a"
       }
     ],
     "used_designators": "",
@@ -637,7 +637,7 @@
   },
   "sheets": [
     [
-      "2e71071c-01ca-458e-91ea-f85268089b47",
+      "9fc2e207-f486-4039-9a0e-ec89c7abc41a",
       "Schematic1"
     ]
   ],
