@@ -95,15 +95,15 @@ All of the renders on the documentation were created using Blender 5.1, and rend
 
 ## PCB Assembly
 
-### PCB ComponentBill of Materials
-[Full BOM](./pcb/fabrication/BOM.md)
+### PCB Component Bill of Materials
+[PCB Component BOM](./pcb/fabrication/BOM.md)
 
 Total cost from LCSC: **$103.21**
 [LCSC Quote](./pcb/fabrication/LCSC_BOM_export.xls)
 
 ### Assembly
 
-The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB with the simple 4-layer PCBA economical service. Two-sided automated assembly is quite expensive however, so first prototypes will be assembled manually using solder stencils. PCB components can be ordered from LCSC using the [LCSC BOM](./pcb/fabrication/BOM_BOard1_PCB1.xlsx).
+The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB with the simple 4-layer PCBA economical service. Two-sided automated assembly is quite expensive however, so first prototypes will be assembled manually using solder stencils. PCB components can be ordered from LCSC using the [LCSC BOM](./pcb/fabrication/BOM_Board1_PCB1.xlsx).
 > NOTE: The large copper pours are connected directly to a lot of the pads, manual soldering will require the use of a hot air rework station and powerful soldering iron
 
 ## Bill of Materials
