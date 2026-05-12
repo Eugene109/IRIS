@@ -1,4 +1,4 @@
-<img alt="IRIS" src="./docs/logo/logo.png" height="100px">
+<img alt="IRIS" src="./docs/logo/logo.png" height="200px">
 
 > A low-cost quadcopter platform designed for autonomous swarm operations.
 
@@ -7,7 +7,7 @@
 ![Photorealistic render from the back-right-top side of the drone](./docs/images/pr_render6.png)
 
 ## Overview
-IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight controller and 4 ESCs. Designed with the idea of delivering Skittles autonomously, IRIS is built from the ground-up for autonomous operation in swarms. With a rich sensor set and high degree of customizability, IRIS represents an accessible, low-cost entry into the world of autonomous and swarm drone design.
+IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight controller and 4 ESCs. Designed with the idea of delivering Skittles autonomously, IRIS is built from the ground-up for autonomous operation in swarms. With a rich sensor set and high degree of customizability, IRIS represents an accessible, low-cost entry into the world of autonomous and swarm drone operations.
 ![Photorealistic render of the front side of the PCB](./docs/images/pr_render4.png)
 
 ## Features
@@ -62,6 +62,8 @@ https://electronoobs.com/eng_arduino_tut91.php, the wiring diagram was very help
 
 ### Frame Design
 The frame design merges swooping curves and sharp geometric angles in a retrofuturistic visual style. Inspired by the Theme Building at LAX, the frame arms are each constructed with 3 catenary curves, with the bottom arches merging together to form the cradle for the battery.
+
+The bottom also features a -30º camera mount, which facilitates autonomous navigation, and turns into the perfect FPV mount when flown inverted.
 ![Photorealistic render from the back-left side of the drone](./docs/images/pr_render5.png)
 
 At the top of the frame, a little cradle with a minimalist IRIS logo debossed reserves space for a small collection of Skittles, easily dumped out by flipping the drone.
@@ -81,8 +83,8 @@ The drone frame is constructed in two pieces and held together by 8 M2 screws. T
 
 ### For KiCAD Users:
 This project was made in the free software EasyEDA Pro, and the design is native to that software. The PCB design has been converted to a KiCAD project for easier access to the design, but there may be some errors that have occurred during the import process, in particular trace clearances and zone fill rules.
-> NOTE: The KiCAD imported project relies on 3D models and footprints from LCSC, which should be imported using [easyeda2kicad.py](https://github.com/uPesy/easyeda2kicad.py) as follows:
-> `easyeda2kicad --full --lcsc_id C19702 C29266 C53084459 C602037 C23630 C100042 C19666 C95841 C86295 C7171 C1644 C106245 C47023104 C98732 C2856805 C52016392 C76891 C7427089 C6807998 C784395 C19268133 C98220 C2907028 C2906920 C163475 C60491 C106235 C105871 C2907044 C2909315 C53447012 C628051 C1850418 C83291 C478483 C7421519 C118318 C2071056 C2054944 C481371 C90770 C49446790 C2892669 C1985532 C2965508 C114409 C7431054 C19273151 C709357 --output `**`<full path to pcb/kicad folder>`**`\libs\lcsc_import_lib --project-relative --overwrite `
+
+> NOTE: The KiCAD imported project relies on 3D models and footprints from LCSC, which were imported using [easyeda2kicad.py](https://github.com/uPesy/easyeda2kicad.py).
 
 ### Repository Structure
 All of the files for the flight controller + ESC board are contained in `pcb/`, with fabrication files in `pcb/fabrication/`. All fabrication files are to [JLCPCB](https://jlcpcb.com/) specifications. All part numbers are from [LCSC](https://www.lcsc.com/).
@@ -125,14 +127,17 @@ Total: $199.67
 
 ## Drone Assembly
 1. Print the frame in two sections
-2. Attach heat-set inserts with a soldering iron on the base frame
-3. Cut 4056 foam to shape and attach to the PCB contact areas on both sides of the frame 
-4. Insert the assembled PCB between the two frame sections and bolt down all 8 M2x10mm screws
-5. Insert the battery into the cradle underneath the PCB, fasten with zip ties across horizontal beams
-6. Attach brushless motors with M2x8mm screws
-7. Press-fit 2CCW and 2CW propellers onto the four brushless motors' 1.5mm shafts
-8. Flash the firmware using a USB-C cable and a serial programmer
-9. Fly!
+2. Attach heat-set inserts with a soldering iron on the base half of the frame.
+3. Cut 4056 foam to shape and attach to the PCB contact areas on both sides of the frame.
+4. Attach the OV2640 camera SCCB cable to the connector and attach 4056 foam to the back of the sensor.
+5. Insert the assembled PCB between the two frame sections and bolt down all 8 M2x10mm screws.
+6. Slot the camera sensor into its 30º mount and attach using 4056 foam.
+7. Insert the battery into the cradle underneath the PCB, mount it with 4056 foam and fasten down with zip ties across the horizontal beams, inside of the grooves.
+8. Attach brushless motors with M2x8mm screws.
+9. Press-fit 2CCW and 2CW propellers onto the four brushless motors' 1.5mm shafts.
+10. Flash the [Betaflight firmware](./firmware/betaflight/binaries/betaflight_2026.6.0-alpha_STM32H743_IRIS_H743.hex) using a USB-C cable.
+11. Flash the [Zephyrus firmware](https://github.com/Eugene109/zephyrus/releases/latest) to all four ESCs using a serial programmer attached to the 4-pin headers.
+11. Fly!
 
 ## Firmware
 ### Betaflight
@@ -163,6 +168,8 @@ Everything is [GNU GPL-3.0](LICENSE)
 
 zephyrus firmware is licensed under MIT, check its [repo](https://github.com/Eugene109/zephyrus) for more information.
 
+> **Trademark Notice:** Skittles® is a registered trademark of Mars, Inc. This project is not affiliated with, or sponsored by Mars, Inc. References to Skittles and any associated imagery are for descriptive purposes only.
+
 ### Attribution
 1103 BLDC motor 3D model used in Fusion Assembly is from [GrabCAD](https://grabcad.com/library/geprc-gr1103-1) by [Dang Ngoc Duy](https://grabcad.com/dang.ngoc.duy-1)
 
@@ -171,3 +178,5 @@ zephyrus firmware is licensed under MIT, check its [repo](https://github.com/Eug
 rostock_laage_airport_4k.exr is CC0 from PolyHaven, credit to Greg Zaal
 
 Inspiration was taken from [Electronoobs's ESC design], informing the framework for a standard ESC architecture.
+
+None of the PCB 3D models are my own work, they come from LCSC's libraries.
