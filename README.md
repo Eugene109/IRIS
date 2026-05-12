@@ -7,7 +7,7 @@
 ![Photorealistic render from the back-right-top side of the drone](./docs/images/pr_render6.png)
 
 ## Overview
-IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight controller and 4 ESCs. Designed with the idea of delivering Skittles autonomously, IRIS is built from the ground-up for autonomous operation in swarms. With a rich sensor set and high degree of customizability, IRIS represents an accessible, low-cost entry into the world of autonomous and swarm drone operations.
+IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight controller and 4 ESCs. Designed with the idea of delivering Skittles autonomously, IRIS is built from the ground-up for autonomous operation in swarms. With a rich sensor set and high degree of customizability, IRIS represents an accessible, low-cost entry into the world of autonomous and swarm drone operations. I began this project because I found a lack of accessible drone designs that are for more than just 'fun FPV flying', and I wanted to be able to program a drone to do cool things. IRIS represents a rethinking of small drone design, believing that small drones can and should be autonomous and that everyone should be able to program a drone.
 ![Photorealistic render of the front side of the PCB](./docs/images/pr_render4.png)
 
 ## Features
@@ -116,13 +116,13 @@ The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB w
 | Battery | 1000 mAh 2S LiPo with XT60 connector| [Admiral](https://motionrc.com/products/admiral-1000mah-2s-7-4v-30c-lipo-battery-with-xt60-connector-epr10002x6) | 9.99 |
 | Motors | 4x 8000 kV 1103 Brushless DC | [AliExpress](https://www.aliexpress.us/item/3256808118156099.html) | 23.99 |
 | Propellers | Gemfan 2512 2.5Inch 3-Blade 1.5mm Hole Propeller - 4CW+4CCW | [Pyrodrone](https://pyrodrone.com/products/gemfan-2512-2-5inch-3-blade-1-5mm-2mm-hole-propeller-4cw-4ccw) | 4.99 |
-| Camera | OV2640 with SCCB cable | [Arducam](https://www.arducam.com/ov2640-2-0-mp-mega-pixels-1-4-cmos-image-sensor-sccb-interface-camera-module.html) | 6.99 |
+| Camera | OV2640 with SCCB cable | [AliExpress](https://www.aliexpress.us/item/3256805331385102.html) | 4.20 |
 | Heat-set inserts | M2x2.5mm, 3.5mm OD Knurled Brass Threaded Heat Set Inserts | [Rusty Bolt Shop](https://ebay.us/m/7A3cL3) | 1.70 |
 | Frame screws | M2x10mm screws | [The Rusty Bolt Shop](https://ebay.us/m/wMPMiQ) | 2.02 |
 | Motor mount screws | M2x8mm screws | [The Rusty Bolt Shop](https://ebay.us/m/UnEsMj) | 2.56 |
 | Vibration dampening foam | 3M Double Coated Urethane Foam Tape 4056 | [Newegg](https://www.newegg.com/p/2VW-0006-00155?item=9SIA5D52U89288) | 14.99 |
 
-Total: $199.67
+Total: $196.88
 (minus shipping)
 
 ## Drone Assembly
