@@ -110,9 +110,8 @@ The [PCB gerbers](./pcb/fabrication/gerbers.zip) can be manufactured by JLCPCB w
 
 | Part | Description | Link | Price |
 | --- | ----------- | ------------ | ----- |
-| FC+ESC | 4-layer PCB A Economic, HASL(leaded) finish, 2 stencils w/ framework | [JLCPCB](./pcb/fabrication/jlcpcb_quote.png) | 29.23 |
-| FC+ESC | IRIS PCB Components | [LCSC](./pcb/fabrication/LCSC_BOM_export.xls) | 103.21 |
-| Frame | IRIS Frame | [3D Print](./frame/3mf) | - |
+| FC+ESC | 4-layer PCB A Economic, HASL(leaded) finish, 2 stencils w/ framework | [JLCPCB](https://cart.jlcpcb.com/quote) | 29.23 |
+| FC+ESC | IRIS PCB Components | [LCSC](https://www.lcsc.com/) | 103.21 |
 | Battery | 1000 mAh 2S LiPo with XT60 connector| [Admiral](https://motionrc.com/products/admiral-1000mah-2s-7-4v-30c-lipo-battery-with-xt60-connector-epr10002x6) | 9.99 |
 | Motors | 4x 8000 kV 1103 Brushless DC | [AliExpress](https://www.aliexpress.us/item/3256808118156099.html) | 23.99 |
 | Propellers | Gemfan 2512 2.5Inch 3-Blade 1.5mm Hole Propeller - 4CW+4CCW | [Pyrodrone](https://pyrodrone.com/products/gemfan-2512-2-5inch-3-blade-1-5mm-2mm-hole-propeller-4cw-4ccw) | 4.99 |
