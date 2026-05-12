@@ -31,6 +31,9 @@ IRIS is centered around a mass-manufacturable low-cost PCB, containing a flight 
 - [Firmware](#firmware)
 - [Roadmap](#roadmap)
 
+## Hack Club Magazine Page
+![A5 magazine page](./docs/images/magazine_page.png)
+
 ## Design Features
 
 ### Flight Controller Design
